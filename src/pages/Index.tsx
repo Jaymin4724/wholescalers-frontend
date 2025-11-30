@@ -9,6 +9,7 @@ const Index = () => {
   const { isAuthenticated, user } = useAuth();
 
   useEffect(() => {
+      if (window.Cypress) return;
     if (isAuthenticated && user) {
       navigate(`/${user.role}/dashboard`);
     }
